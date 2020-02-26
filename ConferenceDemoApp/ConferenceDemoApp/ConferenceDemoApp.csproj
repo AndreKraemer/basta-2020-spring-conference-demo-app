@@ -23,7 +23,7 @@
     <EmbeddedResource Update="Sessions\SessionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Speaker\SpeakersPage.xaml">
+    <EmbeddedResource Update="Speakers\SpeakersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sessions="clr-namespace:ConferenceDemoApp.Sessions"
-             xmlns:speakers="clr-namespace:ConferenceDemoApp.Speaker"
+             xmlns:speakers="clr-namespace:ConferenceDemoApp.Speakers"
              mc:Ignorable="d"
              x:Class="ConferenceDemoApp.AppShell">
 
