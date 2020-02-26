@@ -10,13 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace ConferenceDemoApp.Sessions
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SessionsPage : ContentPage
+    public partial class FavoritesPage : ContentPage
     {
         private SessionsViewModel _viewModel;
-        public SessionsPage()
+        public FavoritesPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new SessionsViewModel();
+            BindingContext = _viewModel = new SessionsViewModel(true);
         }
 
         protected override void OnAppearing()

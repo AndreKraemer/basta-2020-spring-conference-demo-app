@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sessions="clr-namespace:ConferenceDemoApp.Sessions;assembly=ConferenceDemoApp"
              mc:Ignorable="d"
-             x:Class="ConferenceDemoApp.Sessions.SessionsPage">
+             Title="Favoriten"
+             x:Class="ConferenceDemoApp.Sessions.FavoritesPage">
     <Shell.SearchHandler>
         <sessions:SessionsSearchHandler 
             Placeholder="Titel der Session ..." 

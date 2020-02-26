@@ -1,4 +1,5 @@
 ﻿using System;
+using ConferenceDemoApp.Sessions;
 using ConferenceDemoApp.Speakers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,7 @@ namespace ConferenceDemoApp
         {
             InitializeComponent();
             DependencyService.Register<SpeakerService>();
+            DependencyService.Register<SessionService>();
             MainPage = new AppShell();
         }
 

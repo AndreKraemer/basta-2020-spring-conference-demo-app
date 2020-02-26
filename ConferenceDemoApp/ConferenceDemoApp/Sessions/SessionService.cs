@@ -24,10 +24,15 @@ namespace ConferenceDemoApp.Sessions
         bool IsConnected => Connectivity.NetworkAccess == NetworkAccess.Internet;
         public async Task<IList<Session>> GetSessionsAsync()
         {
-            if (IsConnected)
+            return await GetSessionsInternalAsync(false);
+        }
+
+        private async Task<IList<Session>> GetSessionsInternalAsync(bool useCached)
+        {
+            if (IsConnected && (!useCached || _sessions == null || !_sessions.Any() ))
             {
                 var json = await _client.GetStringAsync($"sessions");
-                _sessions  = JsonConvert.DeserializeObject<IList<Session>>(json);
+                _sessions = JsonConvert.DeserializeObject<IList<Session>>(json);
             }
 
             return _sessions;
@@ -35,18 +40,18 @@ namespace ConferenceDemoApp.Sessions
 
         public async Task<IList<Session>> GetFavoritesAsync()
         {
-            return (await GetSessionsAsync()).Where(x => x.IsFavorite).ToList();
+            return (await GetSessionsInternalAsync(true)).Where(x => x.IsFavorite).ToList();
 
         }
 
         public async Task<IList<Session>> Search(string filter)
         {
-            return (await GetSessionsAsync()).Where(x => x.Title.ToLower().Contains(filter.ToLower())).ToList();
+            return (await GetSessionsInternalAsync(true)).Where(x => x.Title.ToLower().Contains(filter.ToLower())).ToList();
         }
 
         public async Task<Session> GetSessionAsync(int id)
         {
-            return (await GetSessionsAsync()).SingleOrDefault(x => x.Id == id);
+            return (await GetSessionsInternalAsync(true)).SingleOrDefault(x => x.Id == id);
         }
     }
 }

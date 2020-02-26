@@ -14,6 +14,9 @@
             <Label TextColor="White" FontSize="Large">Xamarin.Forms Demo</Label>
         </StackLayout>
     </Shell.FlyoutHeader>
-    <ShellContent Title="Programm" ContentTemplate="{DataTemplate sessions:SessionsPage}"></ShellContent>
+    <FlyoutItem Title="Programm">
+        <ShellContent Title="Programm" ContentTemplate="{DataTemplate sessions:SessionsPage}"/>
+        <ShellContent Title="Favoriten" ContentTemplate="{DataTemplate sessions:FavoritesPage}"/>
+    </FlyoutItem>  
     <ShellContent Title="Sprecher" ContentTemplate="{DataTemplate speakers:SpeakersPage}"></ShellContent>
 </Shell>

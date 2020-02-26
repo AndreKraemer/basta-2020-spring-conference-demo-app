@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConferenceDemoApp.Sessions;
 using ConferenceDemoApp.Speakers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,6 +22,7 @@ namespace ConferenceDemoApp
         private void RegisterRoutes()
         {
             Routing.RegisterRoute("speakers/details", typeof(SpeakerDetailsPage));
+            Routing.RegisterRoute("sessions/details", typeof(SessionDetailsPage));
         }
     }
 }
