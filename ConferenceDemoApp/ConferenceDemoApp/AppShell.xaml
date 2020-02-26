@@ -8,15 +8,12 @@
              mc:Ignorable="d"
              x:Class="ConferenceDemoApp.AppShell">
 
-    <FlyoutItem Title="Programm">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate sessions:SessionsPage}"></ShellContent>
-        </Tab>
-    </FlyoutItem>
-    <FlyoutItem Title="Sprecher">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate speakers:SpeakersPage}"></ShellContent>
-        </Tab>
-    </FlyoutItem>
-
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="Orange" Padding="20">
+            <Label TextColor="White" FontSize="Large">BASTA Spring 2020</Label>
+            <Label TextColor="White" FontSize="Large">Xamarin.Forms Demo</Label>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <ShellContent Title="Programm" ContentTemplate="{DataTemplate sessions:SessionsPage}"></ShellContent>
+    <ShellContent Title="Sprecher" ContentTemplate="{DataTemplate speakers:SpeakersPage}"></ShellContent>
 </Shell>
