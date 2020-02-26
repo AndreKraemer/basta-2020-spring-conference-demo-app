@@ -35,12 +35,30 @@ namespace ConferenceDemoApp.Speakers
 
         public async Task<IList<Speaker>> Search(string filter)
         {
+            if (HasLocalMatch(filter))
+            {
+                return _speakers.Where(x => x.Name.ToLower().Contains(filter.ToLower())).ToList();
+            }
             return (await GetSpeakersAsync()).Where(x => x.Name.ToLower().Contains(filter.ToLower())).ToList();
+        }
+
+        private bool HasLocalMatch(string filter)
+        {
+            return _speakers != null && _speakers.Any(x => x.Name.ToLower().Contains(filter.ToLower()));
         }
 
         public async Task<Speaker> GetSpeakerAsync(int id)
         {
+            if (HasLocalMatch(id))
+            {
+                return _speakers.First(x => x.Id == id);
+            }
             return (await GetSpeakersAsync()).SingleOrDefault(x => x.Id == id);
+        }
+
+        private bool HasLocalMatch(int id)
+        {
+            return _speakers != null && _speakers.Any(x => x.Id == id);
         }
     }
 }
