@@ -25,5 +25,10 @@ namespace ConferenceDemoApp.Speakers
             base.OnAppearing();
             _viewModel.LoadItemsCommand.Execute(null);
         }
+
+        private async void SpeakerSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Shell.Current.GoToAsync("speakers/details");
+        }
     }
 }
