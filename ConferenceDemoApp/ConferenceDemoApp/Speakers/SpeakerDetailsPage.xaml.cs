@@ -10,11 +10,25 @@ using Xamarin.Forms.Xaml;
 namespace ConferenceDemoApp.Speakers
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [QueryProperty("SpeakerId", "id")]
     public partial class SpeakerDetailsPage : ContentPage
     {
+
+        private ISpeakerService _speakerService = new DummySpeakerService();
         public SpeakerDetailsPage()
         {
             InitializeComponent();
+        }
+
+        public string SpeakerId
+        {
+            set
+            {
+                if (int.TryParse(Uri.UnescapeDataString(value), out var id))
+                {
+                    BindingContext = _speakerService.GetSpeakerAsync(id).Result;
+                }
+            }
         }
     }
 }

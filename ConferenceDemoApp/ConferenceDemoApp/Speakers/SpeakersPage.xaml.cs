@@ -26,9 +26,14 @@ namespace ConferenceDemoApp.Speakers
             _viewModel.LoadItemsCommand.Execute(null);
         }
 
-        private async void SpeakerSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void SpeakerSelected(object sender, SelectionChangedEventArgs e)
         {
-            Shell.Current.GoToAsync("speakers/details");
+            var id = (e.CurrentSelection.FirstOrDefault() as Speaker)?.Id;
+            if (id.HasValue)
+            {
+                Shell.Current.GoToAsync($"speakers/details?id={id.Value}");
+            }
+            
         }
     }
 }
