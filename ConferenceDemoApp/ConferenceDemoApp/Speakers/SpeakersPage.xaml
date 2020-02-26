@@ -13,6 +13,7 @@
             DisplayMemberName="Name"/>
     </Shell.SearchHandler>
     <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsLoading}" Command="{Binding LoadItemsCommand}">
         <CollectionView Margin="20" 
                         ItemsSource="{Binding Speakers}"
                         SelectionMode="Single"
@@ -26,5 +27,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

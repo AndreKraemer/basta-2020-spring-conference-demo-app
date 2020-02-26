@@ -8,7 +8,7 @@ namespace ConferenceDemoApp.Speakers
     public class SpeakersSearchHandler: SearchHandler
     {
 
-        private ISpeakerService _speakerService = new DummySpeakerService();
+        private ISpeakerService _speakerService = DependencyService.Get<ISpeakerService>();
 
         protected override void OnQueryChanged(string oldValue, string newValue)
         {

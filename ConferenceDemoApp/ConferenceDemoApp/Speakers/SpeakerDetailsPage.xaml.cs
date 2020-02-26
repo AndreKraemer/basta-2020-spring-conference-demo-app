@@ -14,7 +14,7 @@ namespace ConferenceDemoApp.Speakers
     public partial class SpeakerDetailsPage : ContentPage
     {
 
-        private ISpeakerService _speakerService = new DummySpeakerService();
+        private ISpeakerService _speakerService = DependencyService.Get<ISpeakerService>();
         public SpeakerDetailsPage()
         {
             InitializeComponent();

@@ -13,7 +13,7 @@ namespace ConferenceDemoApp.Speakers
     public class SpeakersViewModel: INotifyPropertyChanged
     {
         private bool _isLoading;
-        private ISpeakerService _speakerService = new DummySpeakerService();
+        private ISpeakerService _speakerService = DependencyService.Get<ISpeakerService>();
 
         public SpeakersViewModel()
         {
