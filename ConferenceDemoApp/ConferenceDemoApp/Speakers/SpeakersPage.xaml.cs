@@ -31,7 +31,7 @@ namespace ConferenceDemoApp.Speakers
             var id = (e.CurrentSelection.FirstOrDefault() as Speaker)?.Id;
             if (id.HasValue)
             {
-                Shell.Current.GoToAsync($"speakers/details?id={id.Value}");
+               await Shell.Current.GoToAsync($"speakers/details?id={id.Value}");
             }
             
         }
